@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PocketWise | My Money</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="pocketwise-icon-192.png">
+  <link rel="apple-touch-icon" href="pocketwise-icon-192.png">
+  <meta name="theme-color" content="#6d28d9">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">Pocket<span>Wise</span></a>
+    <span class="offline">● Offline ready</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">YOUR MONEY, YOUR FUTURE</p>
+      <h1>Take control of<br>your money.</h1>
+      <p class="muted">Small steps today. Better money habits tomorrow.</p>
+    </section>
+
+    <section class="balance-card">
+      <p>Total balance</p>
+      <h2 id="balance">$0.00</h2>
+      <div class="balance-details">
+        <div>
+          <span>Income</span>
+          <strong id="income">$0.00</strong>
+        </div>
+        <div>
+          <span>Expenses</span>
+          <strong id="expenses">$0.00</strong>
+        </div>
+      </div>
+    </section>
+<section class="panel">
+  <h2>Monthly budgets</h2>
+  <p class="muted">Set a spending limit for each category.</p>
+
+  <form id="budget-form">
+    <label for="budget-category">Category</label>
+    <select id="budget-category">
+      <option value="Food">Food</option>
+      <option value="Transport">Transport</option>
+      <option value="School">School</option>
+      <option value="Personal">Personal</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="budget-limit">Monthly limit ($)</label>
+    <input id="budget-limit" type="number"
+      min="0.01" step="0.01"
+      placeholder="e.g. 30.00" required>
+
+    <button type="submit">Set budget</button>
+  </form>
+
+  <p id="budget-message" class="message"></p>
+  <div id="budget-list"></div>
+</section>
+    <section class="panel">
+  <h2>My savings goals</h2>
+  <p class="muted">
+    Every little step brings you closer to your goal.
+  </p>
+
+  <form id="savings-form">
+    <label for="goal-name">What are you saving for?</label>
+    <input
+      id="goal-name"
+      type="text"
+      placeholder="e.g. A laptop"
+      maxlength="60"
+      required
+    >
+
+    <label for="goal-target">Target amount ($)</label>
+    <input
+      id="goal-target"
+      type="number"
+      min="0.01"
+      step="0.01"
+      placeholder="e.g. 500"
+      required
+    >
+
+    <label for="goal-saved">Current savings ($)</label>
+    <input
+      id="goal-saved"
+      type="number"
+      min="0"
+      step="0.01"
+      value="0"
+      required
+    >
+
+    <button type="submit">+ Add savings goal</button>
+  </form>
+
+  <p id="savings-message" class="message" aria-live="polite"></p>
+  <div id="savings-list"></div>
+      
+<label>
+  <input type="checkbox" id="recordSavingsExpense">
+  Record this contribution as an expense
+</label>
+
+    </section>
+    
+<section class="panel" id="monthly-summary">
+  <h2>Monthly Spending Summary</h2>
+
+  <label for="summary-month">Choose month</label>
+  <input id="summary-month" type="month" autocomplete="off">
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <p>Income</p>
+      <h3 id="monthly-income">$0.00</h3>
+    </div>
+
+    <div class="summary-card">
+      <p>Expenses</p>
+      <h3 id="monthly-expenses">$0.00</h3>
+    </div>
+
+    <div class="summary-card">
+      <p>Left after expenses</p>
+      <h3 id="monthly-left">$0.00</h3>
+    </div>
+  </div>
+
+  <h3>Spending by category</h3>
+  <div id="spending-chart"></div>
+  <p id="chart-message" class="message" aria-live="polite"></p>
+</section>
+
+    <section class="panel">
+      <h2>Add a transaction</h2>
+      <form id="transaction-form">
+        <label for="description">What was it for?</label>
+        <input id="description" type="text"
+          placeholder="e.g. Allowance or lunch" maxlength="60" required>
+<label for="amount">Amount ($)</label>
+        <label for="transaction-category">Category</label>
+<select id="transaction-category">
+  <option value="Food">Food</option>
+  <option value="Transport">Transport</option>
+  <option value="School">School</option>
+  <option value="Personal">Personal</option>
+  <option value="Other">Other</option>
+</select>
+        <label for="amount">Amount ($)</label>
+        <input id="amount" type="number" min="0.01"
+          step="0.01" placeholder="e.g. 5.00" required>
+
+        <label for="type">Transaction type</label>
+        <select id="type">
+          <option value="income">Income — money received</option>
+          <option value="expense">Expense — money spent</option>
+        </select>
+
+        <label for="date">Date</label>
+        <input id="date" type="date" required>
+
+        <button type="submit">+ Add transaction</button>
+      </form>
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="panel">
+      
+      <div class="section-heading">
+        <h2>Recent transactions</h2>
+        <button id="clear-button" class="text-button"
+          type="button">Clear all</button>
+      </div>
+      <div id="transaction-list" class="transaction-list"></div>
+      <p id="empty-state" class="muted">
+        No transactions yet. Add your first one above!
+      </p>
+    </section>
+
+    <p class="footnote">
+      Your entries are saved on this device. This first version is a
+      personal demo, not a bank account.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

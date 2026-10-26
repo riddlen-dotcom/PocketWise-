@@ -1,0 +1,361 @@
+:root {
+  --background: #100d1b;
+  --panel: #1b1629;
+  --purple: #a78bfa;
+  --pink: #f0abfc;
+  --text: #f8f5ff;
+  --muted: #b6aec8;
+  --green: #86efac;
+  --red: #fda4af;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 6%;
+  border-bottom: 1px solid #30263f;
+}
+
+.logo {
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--pink);
+}
+
+.offline {
+  color: var(--green);
+  font-size: 0.8rem;
+}
+
+.container {
+  width: min(100% - 32px, 620px);
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.welcome {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--pink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 9vw, 3.4rem);
+  line-height: 1.08;
+  margin: 10px 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.muted,
+.balance-card p,
+.balance-details span {
+  color: var(--muted);
+}
+
+.balance-card {
+  padding: 24px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #6d28d9, #a21caf);
+  box-shadow: 0 12px 35px #00000030;
+}
+
+.balance-card p {
+  margin: 0;
+  color: #f3e8ff;
+}
+
+.balance-card h2 {
+  margin: 6px 0 22px;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  overflow-wrap: anywhere;
+}
+
+.balance-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.balance-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.balance-details strong {
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+
+#income {
+  color: var(--green);
+}
+
+#expenses {
+  color: #ffe4e6;
+}
+
+.panel {
+  margin-top: 22px;
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid #30263f;
+  border-radius: 18px;
+}
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #463654;
+  border-radius: 10px;
+  background: #120e1e;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--purple);
+  border-color: transparent;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#transaction-form > button {
+  width: 100%;
+  margin-top: 20px;
+  color: #1b1025;
+  background: linear-gradient(90deg, var(--purple), var(--pink));
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-heading h2 {
+  font-size: 1.15rem;
+}
+
+.text-button {
+  padding: 6px 0;
+  background: transparent;
+  color: var(--pink);
+  font-size: 0.85rem;
+}
+
+.transaction-list {
+  display: grid;
+  gap: 12px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #30263f;
+}
+
+.transaction-info {
+  min-width: 0;
+}
+
+.transaction-info strong,
+.transaction-info small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.transaction-info small {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.transaction-right {
+  text-align: right;
+}
+
+.transaction-amount {
+  font-weight: 800;
+}
+
+.income-amount {
+  color: var(--green);
+}
+
+.expense-amount {
+  color: var(--red);
+}
+
+.delete-button {
+  margin-top: 5px;
+  padding: 3px 0;
+  color: var(--muted);
+  background: transparent;
+  font-size: 0.8rem;
+}
+
+.message {
+  color: var(--green);
+  font-size: 0.9rem;
+}
+
+.footnote {
+  margin: 24px 4px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .panel {
+    padding: 16px;
+  }
+
+  .balance-card {
+    padding: 18px;
+  }
+}
+
+/* MONTHLY SPENDING SUMMARY */
+
+#monthly-summary {
+  margin-top: 20px;
+}
+
+#summary-month {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 8px 0 18px;
+  padding: 12px;
+  border: 1px solid #49365f;
+  border-radius: 10px;
+  background: #171225;
+  color: #ffffff;
+  font: inherit;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.summary-card {
+  min-width: 0;
+  padding: 14px;
+  border-radius: 12px;
+  background: #211831;
+  border: 1px solid #49365f;
+  overflow-wrap: anywhere;
+}
+
+.summary-card p {
+  margin: 0 0 8px;
+  color: #d8b4fe;
+  font-size: 14px;
+}
+
+.summary-card h3 {
+  margin: 0;
+  color: #f5d0fe;
+  font-size: 20px;
+}
+
+#spending-chart {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.chart-row {
+  display: grid;
+  gap: 7px;
+}
+
+.chart-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #f3e8ff;
+  font-size: 14px;
+}
+
+.chart-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #342642;
+}
+
+.chart-bar {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #a78bfa, #f0abfc);
+  transition: width 0.3s ease;
+}
+
+.chart-empty {
+  color: #b8a9c9;
+  font-size: 14px;
+}
+#summary-month {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}

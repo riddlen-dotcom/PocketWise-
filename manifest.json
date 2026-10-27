@@ -1,7 +1,8 @@
 
+
 {
-  "name": "PocketWise - My Money",
-  "short_name": "PocketWise",
+  "name": "Auvendi - Your Money",
+  "short_name": "Auvendi",
   "description": "A simple personal money and savings tracker.",
   "start_url": "./index.html",
   "scope": "./",
@@ -22,4 +23,3 @@
     }
   ]
 }
-
